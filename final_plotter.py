@@ -34,17 +34,35 @@ W = int(ins[6])
 data = np.genfromtxt(DEFAULT_OUT, dtype='float', delimiter=W, skip_header=3)
 transposed_data = np.transpose(data)
 
-fig, axes = plt.subplots(subplot_kw={"projection": "3d"})
-
 x = transposed_data[0]
 y = transposed_data[1]
-v = transposed_data[2]
+rho = transposed_data[2]
+V = transposed_data[3]
 
-X = np.reshape(x, (N,N))
-Y = np.reshape(y, (N,N))
-V = np.reshape(v, (N,N))
+x_grid = np.reshape(x, (N,N))
+y_grid = np.reshape(y, (N,N))
+rho_grid = np.reshape(rho, (N,N))
+V_grid = np.reshape(V, (N,N))
 
-surf = axes.plot_surface(X, Y, V, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+# Charge density
+fig, axes = plt.subplots(subplot_kw={"projection": "3d"})
+surf = axes.plot_surface(x_grid, y_grid, rho_grid, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+
+axes.zaxis.set_major_locator(LinearLocator(10))
+
+axes.zaxis.set_major_formatter('{x:.02f}')
+
+axes.xaxis.set_label_text("x (units)")
+axes.yaxis.set_label_text("y (units)")
+axes.zaxis.set_label_text(r"$\rho$ (units)")
+axes.set_title(fr"$\rho(x,y)$ w/ $\rho_0=${rho_0}, $R_x=${R_x}, $R_y=${R_y}, $L_x=${L_x}, $L_y=${L_y}.")
+
+fig.colorbar(surf, shrink=0.5, aspect=5, location='left') # Maybe not needed
+fig.savefig("rho_plot.png")
+
+# Potential
+fig, axes = plt.subplots(subplot_kw={"projection": "3d"})
+surf = axes.plot_surface(x_grid, y_grid, V_grid, cmap=cm.coolwarm, linewidth=0, antialiased=False)
 
 axes.zaxis.set_major_locator(LinearLocator(10))
 
@@ -58,4 +76,4 @@ axes.set_title(fr"$V(x,y)$ w/ $\rho_0=${rho_0}, $R_x=${R_x}, $R_y=${R_y}, $L_x=$
 fig.colorbar(surf, shrink=0.5, aspect=5, location='left') # Maybe not needed
 fig.savefig("potential_plot.png")
 
-print(f"The maximum potential is {np.max(v)}")
+print(f"The maximum potential is {np.max(V)}")

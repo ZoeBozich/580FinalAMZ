@@ -151,7 +151,7 @@ double booles_array(double fx[], double h, int N)
     return (2 * h / 45.0) * accum;
 }
 
-// rho as defined in the project directions, x_0 and y_0 chosen as L_x/2.
+// rho as defined in the project directions, x_0 and y_0 chosen as L_x/2 and L_y/2.
 double rho(double x, double y, Vec_I_DP R, Vec_I_DP L, double rho_0)
 {
     double output = exp(-((x-0.5*L[0])/R[0]*(x-0.5*L[0])/R[0]+(y-0.5*L[1])/R[1]*(y-0.5*L[1])/R[1]));
@@ -165,8 +165,8 @@ double fourier_double_int(int m, int n, Vec_I_DP R, Vec_I_DP L, double rho_0, in
     // This is lifted directly from my project 2, hence uses C++ arrays rather than NR ones
     // Should something be changed for consistency?
     double y_sq[N];   // Represent a bunch of very small squares in y...
-    double x_rect[N]; // Stacks of blocks form thin rectangles in x direction...
-                      // Adding up all the rectanges gives the total area!
+    double x_rect[N]; // Stacks of squares form thin rectangles in x direction...
+                      // Adding up all the rectangles gives the total area!
 
     double h_x = L[0]/(N-1);
     double h_y = L[1]/(N-1);
@@ -188,7 +188,7 @@ double fourier_double_int(int m, int n, Vec_I_DP R, Vec_I_DP L, double rho_0, in
 
 int main()
 {
-    // Input validation - AC
+    // Input validation
     std::cout << "Welcome to the Poisson Equation solver!" << std::endl;
     std::cout << "This program solves the potential for 2D gaussian charge density." << std::endl;
     
@@ -206,6 +206,7 @@ int main()
     std::cout << "Please enter the rho_0 parameter in Coulombs per meter^5:" << std::endl;
     double rho_0 = fetch_pos_double("rho_0 (C*m^5)");
 
+    // TODO - Require N to be divisible by 4 for Boole's array approach
     std::cout << "Please enter the number of grid points N for the Fourier integrals approach:" << std::endl;
     int N = fetch_pos_int("N");
 
@@ -240,7 +241,7 @@ int main()
         {
             // A lot of redundancy here compared to fourier_double_int routine.
             // Maybe can be merged into one big loop?
-	    if (n == 0 && m == 0) continue; // To avoid division by zero
+	        if (n == 0 && m == 0) continue; // To avoid division by zero
             double arg_x = m * M_PI / L[0];
             double arg_y = n * M_PI / L[1];
             rho_mn = fourier_double_int(m, n, R, L, rho_0, N);
@@ -269,6 +270,7 @@ int main()
             y = j * h_y;
             fp << std::setw(W) << x;
             fp << std::setw(W) << y;
+            fp << std::setw(W) << rho(x,y,R,L,rho_0);
             fp << std::setw(W) << V[i][j];
             fp << std::endl;
         }

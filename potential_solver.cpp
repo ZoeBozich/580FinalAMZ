@@ -234,12 +234,13 @@ int main()
     double h_x = L[0]/(N-1);
     double h_y = L[1]/(N-1);
 
-    for (int m = 1; m < MAX_NM; m++)
+    for (int m = 0; m < MAX_NM; m++)
     {
-        for (int n = 1; n < MAX_NM; n++)
+        for (int n = 0; n < MAX_NM; n++)
         {
             // A lot of redundancy here compared to fourier_double_int routine.
             // Maybe can be merged into one big loop?
+	    if (n == 0 && m == 0) continue; // To avoid division by zero
             double arg_x = m * M_PI / L[0];
             double arg_y = n * M_PI / L[1];
             rho_mn = fourier_double_int(m, n, R, L, rho_0, N);
@@ -256,8 +257,6 @@ int main()
             } 
         }
     }
-    // NOTE: Despite what the project directions say, I think the plot turns out much better
-    // if you replace the cosines above and in the fourier routine with sines... But still not perfect
 
     std::cout << "Done! Generating data file..." << std::endl;
 

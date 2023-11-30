@@ -9,7 +9,7 @@ int main()
     
     Vec_DP L(2);
     std::cout << "Please enter the dimensions of the box, in meters:" << std::endl;
-    L[0] = fetch_pos_double("L_x (m)");
+    L[0] = fetch_pos_double("L_x (m)");// fetch functions validate the inputs based on certain parameters
     L[1] = fetch_pos_double("L_y (m)");
 
     Vec_DP R(2);
@@ -49,17 +49,17 @@ int main()
     // Time for a messy block of code... This definitely needs fixing.
     double h_x = L[0]/(N-1);
     double h_y = L[1]/(N-1);
-
+    
+    int temp = 1;//helping us skip the m&&n ==0 case to avoid dividing by zero.
     for (int m = 0; m < MAX_NM; m++)
     {
-        for (int n = 0; n < MAX_NM; n++)
+        for (int n = temp; n < MAX_NM; n++)//int n=temp
         {
             // A lot of redundancy here compared to fourier_double_int routine.
             // Maybe can be merged into one big loop?
-	        if (n == 0 && m == 0) continue; // To avoid division by zero
             double arg_x = m * M_PI / L[0];
             double arg_y = n * M_PI / L[1];
-            rho_mn = fourier_double_int(m, n, R, L, rho_0, N);
+            rho_mn = fourier_double_int(R, L, rho_0, N, arg_x, arg_y, h_x, h_y);// change function to accept arg_x, arg_y, hx, hy, don't need m, n
             c_mn = rho_mn / (arg_x*arg_x + arg_y*arg_y);
             for (int i = 0; i < N; i++)
             {
@@ -72,6 +72,7 @@ int main()
                 }
             } 
         }
+        temp =0;
     }
 
     std::cout << "Done! Generating data file..." << std::endl;

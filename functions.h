@@ -160,7 +160,7 @@ double rho(double x, double y, Vec_I_DP R, Vec_I_DP L, double rho_0)
 
 // Accepts m and n as they appear in the Fourier integrals, all the parameters needed for rho,
 // and number of grid points N. Right now this is a bit inefficient, needs fixes.
-double fourier_double_int(int m, int n, Vec_I_DP R, Vec_I_DP L, double rho_0, int N)
+double fourier_double_int(Vec_I_DP R, Vec_I_DP L, double rho_0, int N, double arg_x, double arg_y, double h_x, double h_y)
 {
     // This is lifted directly from my project 2, hence uses C++ arrays rather than NR ones
     // Should something be changed for consistency?
@@ -168,10 +168,6 @@ double fourier_double_int(int m, int n, Vec_I_DP R, Vec_I_DP L, double rho_0, in
     double x_rect[N]; // Stacks of squares form thin rectangles in x direction...
                       // Adding up all the rectangles gives the total area!
 
-    double h_x = L[0]/(N-1);
-    double h_y = L[1]/(N-1);
-    double arg_x = m * M_PI / L[0];
-    double arg_y = n * M_PI / L[1];
 
     for (int i = 0; i <= N; i++)
     {

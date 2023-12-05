@@ -1,4 +1,5 @@
 #include "functions.h"
+#include <omp.h>
 
 
 int main()
@@ -37,7 +38,11 @@ int main()
     // Obtains the potential
     Mat_DP V(N,N);
     double c_mn, rho_mn, x, y;
+	
+	omp_set_num_threads(16); // Example for 4 threads, adjust as needed
+	double start_time = omp_get_wtime();
 
+	#pragma omp parallel for
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -76,6 +81,8 @@ int main()
     }
 
     std::cout << "Done! Generating data file..." << std::endl;
+	
+	
 
     // Prints the results to file DEFAULT_OUT
     for (int i = 0; i < N; i++)
@@ -92,5 +99,8 @@ int main()
         }
     }
     std::cout << "The data file has been generated!" << std::endl;
+	double end_time = omp_get_wtime();
+    std::cout << "Parallel section time taken: " << (end_time - start_time) << " seconds" << std::endl;
+
     return 0;
 }

@@ -8,7 +8,5 @@ phys 580 final project
 #Run: g++ -fopenmp -o PoissonSolver potential_solver_edits_parallel.cpp functions.h
 
 #Added: A TIMER, PARALLELIZATION
-#Need to :
-#Check parallelization efficiency 
-#smol edits
-#Expansh shell file 
+#Currently: Testing local serial vs parallelization
+#Creating HPC run script

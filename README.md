@@ -5,11 +5,6 @@ phys 580 final project
 
 
 
-
-
-
-
-
 #potential_solver_edits_parallel.cpp Notes
 #Editz: Missael
 #Run: g++ -fopenmp -o PoissonSolver potential_solver_edits_parallel.cpp functions.h

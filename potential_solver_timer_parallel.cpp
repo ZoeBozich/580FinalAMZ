@@ -1,10 +1,11 @@
 #include "functions.h"
 #include <omp.h>
+#include <unistd.h>
 
 
 int main()
 {
-    // Input validation
+    //Input validation
     std::cout << "Welcome to the Poisson Equation solver!" << std::endl;
     std::cout << "This program solves the potential for 2D gaussian charge density." << std::endl;
     
@@ -18,16 +19,16 @@ int main()
     R[0] = fetch_bounded_double("R_x (m)", 0.5*L[0]);
     R[1] = fetch_bounded_double("R_y (m)", 0.5*L[1]);
 
-    // TODO - Check/fix units
+    //TODO - Check/fix units
     std::cout << "Please enter the rho_0 parameter in Coulombs per meter^5:" << std::endl;
     double rho_0 = fetch_pos_double("rho_0 (C*m^5)");
 
-    // TODO - Require N to be divisible by 4 for Boole's array approach
+    //TODO - Require N to be divisible by 4 for Boole's array approach
     std::cout << "Please enter the number of grid points N for the Fourier integrals approach:" << std::endl;
     int N = fetch_pos_int("N");
 
-    // Creates a header to give relevant information to my python program
-    // This is probably not a great approach to communicate with it, not sure how to improve!
+    //Creates a header to give relevant information to my python program
+    //This is probably not a great approach to communicate with it, not sure how to improve!
     std::ofstream fp(DEFAULT_OUT);
     fp << KEY << std::endl;
     fp << create_header(L, R, rho_0, N) << std::endl;
@@ -35,14 +36,25 @@ int main()
 
     std::cout << "Calculating the potential..." << std::endl;
 
-    // Obtains the potential
+    //Obtains the potential
     Mat_DP V(N,N);
     double c_mn, rho_mn, x, y;
 	
-	omp_set_num_threads(16); // Example for 4 threads, adjust as needed
+	//Getting maximum threads of the system
+	//more portable for time comparison
+	//Setting threads to the maximum available
+	omp_set_num_threads(omp_get_max_threads());
+
+	// Printing the number of threads
+	std::cout << "Maximum number of threads available: " << omp_get_max_threads() << std::endl;
+	
+	int num_cores = sysconf(_SC_NPROCESSORS_ONLN);
+	std::cout << "Number of cores available: " << num_cores << std::endl;
+	
+	//For Missael's g14 laptop which has 8 cores and 16 threads
+	//omp_set_num_threads(16); 
 	double start_time = omp_get_wtime();
 
-	#pragma omp parallel for
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -51,11 +63,13 @@ int main()
         }
     }
 
-    // Time for a messy block of code... This definitely needs fixing.
+    //Time for a messy block of code... This definitely needs fixing.
     double h_x = L[0]/(N-1);
     double h_y = L[1]/(N-1);
     
     int temp = 1;//helping us skip the m&&n ==0 case to avoid dividing by zero.
+	
+	#pragma omp parallel for
     for (int m = 0; m < MAX_NM; m++)
     {
         for (int n = temp; n < MAX_NM; n++)//int n=temp
@@ -82,8 +96,6 @@ int main()
 
     std::cout << "Done! Generating data file..." << std::endl;
 	
-	
-
     // Prints the results to file DEFAULT_OUT
     for (int i = 0; i < N; i++)
     {

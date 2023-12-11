@@ -22,7 +22,7 @@ module load cpu
 
 OPTS="-Wall -O3"
 
-g++ $OPTS -fopenmp -o potential_solver_parallel potential_solver_edits_parallel.cpp functions.h
+g++ $OPTS -fopenmp -o potential_solver_parallel potential_solver_timer_parallel.cpp functions.h
 ./potential_solver_parallel $L_x $L_y $R_x $R_y $rho_0 $grid_points
 
 echo "Opening the plotting file..."

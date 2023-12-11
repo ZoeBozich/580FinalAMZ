@@ -19,6 +19,7 @@ grid_points=1000  # Replace with required N
 module purge
 module load slurm
 module load cpu
+module load python/3.11
 
 OPTS="-Wall -O3"
 

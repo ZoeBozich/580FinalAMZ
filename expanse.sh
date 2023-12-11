@@ -1,18 +1,18 @@
 #!/bin/bash
 #SBATCH --job-name="potential_solver"
-#SBATCH --output="helloworld.%j.%N.out"
+#SBATCH --output="potential_solver.%j.%N.out"
 #SBATCH --partition=shared
 #SBATCH --account=sds154
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH -t 00:01:00
+#SBATCH -t 00:03:00
 
 L_x=10
 L_y=10
 R_x=5
 R_y=5
 rho_0=1
-grid_points=1000  # Replace with required N
+grid_points=100  # Replace with required N
 
 #This job runs with 1 nodes, 1 core per node and print hello world and date.
 #Environment

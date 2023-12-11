@@ -26,6 +26,21 @@ int main()
     //TODO - Require N to be divisible by 4 for Boole's array approach
     std::cout << "Please enter the number of grid points N for the Fourier integrals approach:" << std::endl;
     int N = fetch_pos_int("N");
+	
+	// Add a prompt for number of threads
+	int num_threads;
+	std::cout << "Please enter the number of threads to use (max " << omp_get_max_threads() << "): ";
+	num_threads = fetch_pos_int("Threads");
+	if (num_threads > omp_get_max_threads()) {
+		num_threads = omp_get_max_threads();
+	}
+	omp_set_num_threads(num_threads);
+	
+	// Existing code to print maximum number of threads
+	std::cout << "Maximum number of threads available: " << omp_get_max_threads() << std::endl;
+
+	// Modified code to print the number of threads being used
+	std::cout << "Number of threads used: " << num_threads << std::endl;
 
     //Creates a header to give relevant information to my python program
     //This is probably not a great approach to communicate with it, not sure how to improve!
@@ -40,16 +55,6 @@ int main()
     Mat_DP V(N,N);
     double c_mn, rho_mn, x, y;
 	
-	//Getting maximum threads of the system
-	//more portable for time comparison
-	//Setting threads to the maximum available
-	omp_set_num_threads(omp_get_max_threads());
-
-	// Printing the number of threads
-	std::cout << "Maximum number of threads available: " << omp_get_max_threads() << std::endl;
-	
-	int num_cores = sysconf(_SC_NPROCESSORS_ONLN);
-	std::cout << "Number of cores available: " << num_cores << std::endl;
 	
 	//For Missael's g14 laptop which has 8 cores and 16 threads
 	//omp_set_num_threads(16); 

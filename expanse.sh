@@ -26,7 +26,7 @@ module spider load python/3.8.5
 OPTS="-Wall -O3"
 
 g++ $OPTS -fopenmp -o potential_solver_parallel hpc_potential_solver_timer_parallel.cpp functions.h
-./potential_solver_parallel $L_x $L_y $R_x $R_y $rho_0 $grid_points
+./potential_solver_parallel $L_x $L_y $R_x $R_y $rho_0 $grid_points $num_threads
 
 echo "Opening the plotting file..."
 python3 ./final_plotter.py

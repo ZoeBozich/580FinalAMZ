@@ -19,9 +19,9 @@ num_threads=1    # Set the number of threads (HPC 1 thread per core) (laptop(mod
 #This job runs with 1 nodes, 1 core per node and print hello world and date.
 #Environment
 module purge
-module spider load slurm
-module spider load cpu
-module spider load python/3.8.5
+module  load slurm
+module  load cpu
+module  load python/3.8.5
 
 OPTS="-Wall -O3"
 

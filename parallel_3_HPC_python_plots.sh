@@ -14,25 +14,25 @@ R_x=5
 R_y=5
 rho_0=1
 
-module purge
 module  load slurm
-module  load cpu
-module  load python/3.8.5
+
+module load cpu/0.15.4 gcc/10.2.0
+
 
 # Compile the program
 echo "Compiling "
-g++ -Wall -O3 -fopenmp -o parallel_2 parallel_2_noninteractive_itterative_potential_solver.cpp functions.h
+g++ -Wall -O3 -fopenmp -o parallel_3 parallel_3_noninteractive_itterative.cpp functions.h
+chmod +x parallel_3
 
-threads=3
-grids=1
-echo "Computing"
-./parallel_2 $L_x $L_y $R_x $R_y $rho_0 $grids $threads
 
-threads=4
+threads=1
 grids=10
 echo "Computing"
-./parallel_2 $L_x $L_y $R_x $R_y $rho_0 $grids $threads
+./parallel_3 $L_x $L_y $R_x $R_y $rho_0 $grids $threads
 
-echo "Opening the plotting file..."
-python3 ./iterative_final_plotter.py
+threads=1
+grids=100
+echo "Computing"
+./parallel_3 $L_x $L_y $R_x $R_y $rho_0 $grids $threads
+
 echo "Done"

@@ -11,7 +11,7 @@ phys 580 final project
 
 g++ -Wall -O3 -fopenmp -o parallel_1 parallel_1_basic_potential_solver.cpp functions.h		
 
-############### Parallel 2 #################################
+############### Parallel 2 ################################# CURRENTLY RUNNING .. FIXED BUGZ
 
 #Notes: NEW shell script that loops for every core & gridd on the NEW cpp file based MODIFIED main parallelized cpp file
 
@@ -21,9 +21,9 @@ parallel_2_noninteractive_itterative.sh
 
 parallel_2_noninteractive_itterative_potential_solver.cpp
 
-############### Parallel 3 #################################
+############### Parallel 3 ################################# IN PROGRESS YALLS
+
 
 #Notes: NEW shell script for HPC implementation of "Parallel 2" contents
-IN PROGRESS YALLS
 
 Also contains ANOTHER NEW  Shell script for python plotting only 

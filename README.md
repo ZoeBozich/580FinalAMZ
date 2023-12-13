@@ -24,6 +24,6 @@ parallel_2_noninteractive_itterative_potential_solver.cpp
 ############### Parallel 3 ################################# IN PROGRESS YALLS
 
 
-#Notes: NEW shell script for HPC implementation of "Parallel 2" contents
+#Notes: NEW shell script for HPC implementation of "Parallel 2" contents thatnow has unique output filename generation
 
-Also contains ANOTHER NEW  Shell script for python plotting only 
+Its tricky to use python on hpc so this script will generate unique dat files for post-visualization

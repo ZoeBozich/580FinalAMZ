@@ -5,7 +5,7 @@ phys 580 final project
 
 #Running parallel_1_basic_potential_solver.cpp
 #Notes: Standard inputs via terminal & OPENMP Parallelization
-g++ -fopenmp -o parallel_1.sh parallel_1_basic_potential_solver.cpp functions.h
+g++ -Wall -O3 -fopenmp -o parallel_1 parallel_1_basic_potential_solver.cpp functions.h
 
 
 

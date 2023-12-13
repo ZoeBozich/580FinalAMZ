@@ -1,0 +1,52 @@
+Number of grid points: 11
+Maximum number of threads available: 2
+Number of threads used: 2
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0156714 seconds.
+
+Number of grid points: 11
+Maximum number of threads available: 4
+Number of threads used: 4
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0153512 seconds.
+
+Number of grid points: 11
+Maximum number of threads available: 6
+Number of threads used: 6
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0166365 seconds.
+
+Number of grid points: 101
+Maximum number of threads available: 2
+Number of threads used: 2
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 6.94992 seconds.
+
+Number of grid points: 101
+Maximum number of threads available: 4
+Number of threads used: 4
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 4.29077 seconds.
+
+Number of grid points: 101
+Maximum number of threads available: 6
+Number of threads used: 6
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 3.7369 seconds.
+
+Number of grid points: 1001
+Maximum number of threads available: 2
+Number of threads used: 2
+Calculating the potential...

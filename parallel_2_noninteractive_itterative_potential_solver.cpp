@@ -28,6 +28,12 @@ int main(int argc, char* argv[])
 	R[0] = Rx;
 	R[1] = Ry;
 	
+	// Hardcoded x_0 and y_0 values
+    double x_0 = 0.5 * L[0]; // Example: half of Lx
+    double y_0 = 0.5 * L[1]; // Example: half of Ly
+    r_0[0] = x_0;
+    r_0[1] = y_0;
+	
 	//Set number of threads entered by the User
 	omp_set_num_threads(threads);
 	
@@ -36,10 +42,18 @@ int main(int argc, char* argv[])
 	//Print the number of threads being used
 	std::cout << "Number of threads used: " << threads << std::endl;
 
+	//Unique output filename generation
+	// Generate a unique FILENAME based on N and threads
+    std::ostringstream filename;
+    filename << "output_N" << N << "_threads" << threads << ".dat";
+    std::string filename_str = filename.str();
+    // Open the FILE with the new filename
+    std::ofstream fp(filename_str);
+    if (!fp) {
+        std::cerr << "Error: Could not open file " << filename_str << std::endl;
+        return 1;
+    }
 	
-    // Creates a header to give relevant information to my python program
-    // This is probably not a great approach to communicate with it, not sure how to improve!
-    std::ofstream fp(DEFAULT_OUT);
     fp << KEY << std::endl;
     fp << create_header(L, R, r_0, rho_0, N) << std::endl;
     fp << KEY << std::endl;

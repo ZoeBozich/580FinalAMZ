@@ -1,4 +1,11 @@
 #!/bin/bash
+#SBATCH --job-name="potential_solver"
+#SBATCH --output="potential_solver.%j.%N.out"
+#SBATCH --partition=shared
+#SBATCH --account=sds154
+#SBATCH --nodes=5
+#SBATCH --ntasks-per-node=1
+#SBATCH -t 03:00:00
 
 # Fixed values for dimensions, R_x, R_y, rho_0
 Lx=10
@@ -11,8 +18,9 @@ rho_0=1
 grids=(10 100 1000 10000 100000 1000000 10000000)
 threads=(1 2 3 8 16 32 64 128)
 
+
 # Compile the program
-g++ -Wall -O3 -fopenmp -o parallel_2 parallel_2_noninteractive_itterative_potential_solver.cpp functions.h
+g++ -Wall -O3 -fopenmp -o parallel_3 parallel_2_noninteractive_itterative_potential_solver.cpp functions.h
 
 # Run tests
 for n in "${grids[@]}"; do

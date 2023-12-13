@@ -13,7 +13,7 @@ g++ -Wall -O3 -fopenmp -o parallel_1 parallel_1_basic_potential_solver.cpp funct
 
 ############### Parallel 2 #################################
 
-#Notes: NEW shell script that loops for every core & gridd on the MODIFIED main parallelized cpp file
+#Notes: NEW shell script that loops for every core & gridd on the NEW cpp file based MODIFIED main parallelized cpp file
 
 #Contents: 
 
@@ -21,8 +21,9 @@ parallel_2_noninteractive_itterative.sh
 
 parallel_2_noninteractive_itterative_potential_solver.cpp
 
-############### Parallel 2 #################################
+############### Parallel 3 #################################
 
 #Notes: NEW shell script for HPC implementation of "Parallel 2" contents
+IN PROGRESS YALLS
 
 Also contains ANOTHER NEW  Shell script for python plotting only 

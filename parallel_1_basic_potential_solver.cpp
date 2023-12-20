@@ -76,7 +76,7 @@ int main()
             // Maybe can be merged into one big loop?
             args[0] = m * M_PI / L[0];
             args[1] = n * M_PI / L[1];
-            rho_mn = fourier_double_int(R, L, r_0, rho_0, N, args, h, x, y);// change function to accept arg_x, arg_y, hx, hy, don't need m, n
+            rho_mn = zfourier(R, L, r_0, rho_0, N, args, h, x, y);// change function to accept arg_x, arg_y, hx, hy, don't need m, n
             c_mn = rho_mn / (args[0]*args[0] + args[1]*args[1]);
             for (int i = 0; i < N; i++){
                 for (int j = 0; j < N; j++){

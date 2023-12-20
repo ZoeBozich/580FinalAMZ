@@ -153,3 +153,32 @@ double fourier_double_int(Vec_I_DP R, Vec_I_DP L, Vec_I_DP r_0, double rho_0, in
     return booles_array(x_rect, h[0], N);
 }
 
+//Zoe's trying some stuff here
+double zboole(double fx[], double h, int M){
+	double ends = 7*(fx[0]+fx[M-1]);
+	double total = 0;
+	for (int i=5; i<M; i+=4){
+		total += 32 * fx[i - 4] + 12 * fx[i - 3] + 32 * fx[i - 2] + 14 * fx[i - 1];
+	}
+	return (2 * h / 45.0) * (total+ends);
+}
+
+double zfourier(Vec_I_DP R, Vec_I_DP L, Vec_I_DP r_0, double rho_0, int N, Vec_I_DP args, Vec_I_DP h, Vec_I_DP x, Vec_I_DP y)
+{
+    int M =20; //fixed number of subdivisions for the Boole's approximation of the double integral
+    double xh = L[0]/(1.0*M);
+    double yh = L[1]/(1.0*M);
+    double y_sq[M];   // Represent a bunch of very small squares in y...
+    double x_rect[M]; // Stacks of squares form thin rectangles in x direction...
+                      // Adding up all the rectangles gives the total area!
+
+    for (int i = 0; i < M; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            y_sq[j] = rho(i*xh, j*yh, R, L, r_0, rho_0)*cos(i*xh*args[0])*cos(j*yh*args[1]);
+        }
+        x_rect[i] = zboole(y_sq, h[1], M);
+    }
+    return zboole(x_rect, h[0], M);
+}

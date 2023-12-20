@@ -165,7 +165,7 @@ double zboole(double fx[], double h, int M){
 
 double zfourier(Vec_I_DP R, Vec_I_DP L, Vec_I_DP r_0, double rho_0, int N, Vec_I_DP args, Vec_I_DP h, Vec_I_DP x, Vec_I_DP y)
 {
-    int M =20; //fixed number of subdivisions for the Boole's approximation of the double integral
+    int M =40; //fixed number of subdivisions for the Boole's approximation of the double integral
     double xh = L[0]/(1.0*M);
     double yh = L[1]/(1.0*M);
     double y_sq[M];   // Represent a bunch of very small squares in y...
@@ -178,7 +178,7 @@ double zfourier(Vec_I_DP R, Vec_I_DP L, Vec_I_DP r_0, double rho_0, int N, Vec_I
         {
             y_sq[j] = rho(i*xh, j*yh, R, L, r_0, rho_0)*cos(i*xh*args[0])*cos(j*yh*args[1]);
         }
-        x_rect[i] = zboole(y_sq, h[1], M);
+        x_rect[i] = zboole(y_sq, yh, M);
     }
-    return zboole(x_rect, h[0], M);
+    return zboole(x_rect, xh, M);
 }

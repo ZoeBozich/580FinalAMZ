@@ -20,30 +20,31 @@ int main(int argc, char* argv[])
     double rho_0 = std::atof(argv[5]);
     int N = std::atoi(argv[6]) + 1;
     int threads = std::atoi(argv[7]);
+
+    std::cout << "Number of grid points: " << N << std::endl;
 	
+    Vec_DP L(2), R(2), r_0(2);
+    L[0] = Lx;
+    L[1] = Ly;
+    R[0] = Rx;
+    R[1] = Ry;
 	
-	Vec_DP L(2), R(2), r_0(2);
-	L[0] = Lx;
-	L[1] = Ly;
-	R[0] = Rx;
-	R[1] = Ry;
-	
-	// Hardcoded x_0 and y_0 values
+    // Hardcoded x_0 and y_0 values
     double x_0 = 0.5 * L[0]; // Example: half of Lx
     double y_0 = 0.5 * L[1]; // Example: half of Ly
     r_0[0] = x_0;
     r_0[1] = y_0;
 	
-	//Set number of threads entered by the User
-	omp_set_num_threads(threads);
+    //Set number of threads entered by the User
+    omp_set_num_threads(threads);
 	
-	//Print maximum number of threads
-	std::cout << "Maximum number of threads available: " << omp_get_max_threads() << std::endl;
-	//Print the number of threads being used
-	std::cout << "Number of threads used: " << threads << std::endl;
-
-	//Unique output filename generation
-	// Generate a unique FILENAME based on N and threads
+    //Print maximum number of threads
+    std::cout << "Maximum number of threads available: " << omp_get_max_threads() << std::endl;
+    //Print the number of threads being used
+    std::cout << "Number of threads used: " << threads << std::endl;
+	
+    //Unique output filename generation
+    // Generate a unique FILENAME based on N and threads
     std::ostringstream filename;
     filename << "output_N" << N << "_threads" << threads << ".dat";
     std::string filename_str = filename.str();
@@ -59,10 +60,10 @@ int main(int argc, char* argv[])
     fp << KEY << std::endl;
 
     std::cout << "Calculating the potential..." << std::endl;
-	//TIMER BEGINS
-	double start_time = omp_get_wtime();	
+    //TIMER BEGINS
+    double start_time = omp_get_wtime();	
     
-	// Obtains the potential
+    // Obtains the potential
     double c_mn, rho_mn;
     Mat_DP V(N,N);
     Vec_DP x(N), y(N), h(2), args(2);
@@ -78,8 +79,8 @@ int main(int argc, char* argv[])
     
     //int temp = 1;//helping us skip the m&&n ==0 case to avoid dividing by zero.
 	
-	//PARALLELIZATION
-	#pragma omp parallel for collapse(2)
+    //PARALLELIZATION
+    #pragma omp parallel for collapse(2)
     for (int m = 0; m < N; m++){
 		for (int n = 0; n < N; n++) {
 			if (m == 0 && n == 0) continue; // Skip the case when both m and n are zero
@@ -114,9 +115,9 @@ int main(int argc, char* argv[])
         }
     }
     std::cout << "The data file has been generated!" << std::endl;
-	//TIMER END
+    //TIMER END
     double end_time = omp_get_wtime();
-	//TIME CALCULATION
+    //TIME CALCULATION
     double duration = end_time - start_time;
     //OUTPUT TIME
     std::cout << "Calculation completed in " << duration << " seconds." << std::endl;

@@ -1,52 +1,333 @@
-Number of grid points: 11
-Maximum number of threads available: 2
-Number of threads used: 2
+Maximum number of threads available: 10
+Number of threads used: 10
 Calculating the potential...
 Done! Generating data file...
 The data file has been generated!
-Calculation completed in 0.0156714 seconds.
+Calculation completed in 1.89117 seconds.
 
-Number of grid points: 11
-Maximum number of threads available: 4
-Number of threads used: 4
+Maximum number of threads available: 100
+Number of threads used: 100
 Calculating the potential...
 Done! Generating data file...
 The data file has been generated!
-Calculation completed in 0.0153512 seconds.
+Calculation completed in 0.287923 seconds.
 
-Number of grid points: 11
-Maximum number of threads available: 6
-Number of threads used: 6
+Maximum number of threads available: 1000
+Number of threads used: 1000
 Calculating the potential...
 Done! Generating data file...
 The data file has been generated!
-Calculation completed in 0.0166365 seconds.
+Calculation completed in 0.35128 seconds.
 
-Number of grid points: 101
-Maximum number of threads available: 2
-Number of threads used: 2
+Maximum number of threads available: 10000
+Number of threads used: 10000
 Calculating the potential...
 Done! Generating data file...
 The data file has been generated!
-Calculation completed in 6.94992 seconds.
+Calculation completed in 0.840724 seconds.
 
-Number of grid points: 101
-Maximum number of threads available: 4
-Number of threads used: 4
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
 Calculating the potential...
 Done! Generating data file...
 The data file has been generated!
-Calculation completed in 4.29077 seconds.
+Calculation completed in 0.235921 seconds.
 
-Number of grid points: 101
-Maximum number of threads available: 6
-Number of threads used: 6
+Maximum number of threads available: 100
+Number of threads used: 100
 Calculating the potential...
 Done! Generating data file...
 The data file has been generated!
-Calculation completed in 3.7369 seconds.
+Calculation completed in 0.0518371 seconds.
 
-Number of grid points: 1001
-Maximum number of threads available: 2
-Number of threads used: 2
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.161429 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.524348 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0391635 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0160965 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0691883 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.454087 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00757008 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00832163 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0550913 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.433065 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00248767 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00738376 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0461171 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.422712 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00143926 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00602949 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0447764 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.433972 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00118762 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00561755 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0440908 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.434096 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00109805 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00523886 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.0440594 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.431649 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
+Calculating the potential...
+Maximum number of threads available: 10
+Number of threads used: 10
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00103527 seconds.
+
+Maximum number of threads available: 100
+Number of threads used: 100
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.00507127 seconds.
+
+Maximum number of threads available: 1000
+Number of threads used: 1000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.045605 seconds.
+
+Maximum number of threads available: 10000
+Number of threads used: 10000
+Calculating the potential...
+Done! Generating data file...
+The data file has been generated!
+Calculation completed in 0.432907 seconds.
+
+Maximum number of threads available: 100000
+Number of threads used: 100000
+Calculating the potential...
+Maximum number of threads available: 1000000
+Number of threads used: 1000000
+Calculating the potential...
+Maximum number of threads available: 10000000
+Number of threads used: 10000000
 Calculating the potential...

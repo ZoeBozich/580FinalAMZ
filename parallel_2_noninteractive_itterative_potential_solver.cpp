@@ -1,7 +1,7 @@
-#include <omp.h>
 #include <chrono>
 #include <iostream>
-#include "functions.h"
+#include "./Headers/functions.h"
+
 
 int main(int argc, char* argv[])
 {
@@ -54,9 +54,10 @@ int main(int argc, char* argv[])
         std::cerr << "Error: Could not open file " << filename_str << std::endl;
         return 1;
     }
-	
+	int N_mn = N, M = N; // A temporary fix since function definition changed
+
     fp << KEY << std::endl;
-    fp << create_header(L, R, r_0, rho_0, N) << std::endl;
+    fp << create_header(L, R, r_0, rho_0, N, N_mn, M) << std::endl;
     fp << KEY << std::endl;
 
     std::cout << "Calculating the potential..." << std::endl;

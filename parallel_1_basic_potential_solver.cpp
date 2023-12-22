@@ -1,7 +1,6 @@
-#include <omp.h>
 #include <chrono>
 #include <iostream>
-#include "functions.h"
+#include "./Headers/functions.h"
 
 int main()
 {

@@ -1,0 +1,2 @@
+This code is the parallelized code for our project!
+It accepts all of the necessary parameters as inputs as well as the thread count, and outputs the resulting potential to the default output file.

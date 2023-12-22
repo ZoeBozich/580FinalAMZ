@@ -1,5 +1,4 @@
-#include "functions.h"
-#include <omp.h>
+#include "./Headers/functions.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -51,7 +50,7 @@ int main(int argc, char *argv[]) {
     // This is probably not a great approach to communicate with it, not sure how to improve!
     std::ofstream fp(DEFAULT_OUT);
     fp << KEY << std::endl;
-    fp << create_header(L, R, rho_0, N) << std::endl;
+    fp << create_header(L, R, rho_0, N, N_mn, M) << std::endl;
     fp << KEY << std::endl;
 
     std::cout << "Calculating the potential..." << std::endl;

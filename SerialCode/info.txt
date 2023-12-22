@@ -1,0 +1,1 @@
+This code is the default serial code for our project. It accepts all of the necessary parameters as inputs, and outputs the resulting potential to the default output file with no parallelization.

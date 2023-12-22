@@ -1,0 +1,1 @@
+This section generates plots showing how the computation time depends on thread count and number of grid points.
